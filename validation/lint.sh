@@ -33,4 +33,4 @@ echo "Run  yamllint"
 yamllint .
 
 echo "Validate Markdown"
-pymarkdown --config .pymarkdown.json scan --recurse --exclude './.venv/' .
+pymarkdown --config .pymarkdown.json scan --recurse --exclude '.venv/**' .
