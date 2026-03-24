@@ -1,3 +1,0 @@
-from_image: rocm/dev-ubuntu-24.04:7.1.1-complete
-base_image_distro: Ubuntu
-base_image_description: (Ubuntu) Official AMD ROCm dev image with the full aicage base tool stack installed on top
