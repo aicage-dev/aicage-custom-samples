@@ -13,10 +13,10 @@ This project holds samples for customization of `aicage` images.
 Aicage images are built in layers:
 
 1. base-image: The core layer with the OS and all software needed for development
-2. agent: The coding-agent is added to a base-image
-3, optional extensions: Custom extension to add more software to images
+2. agent: The coding agent is added to a base-image
+3. optional extensions: Custom extensions add more software to images
 
-All layers can be fully customized - users can write their own and `aicage` builds the other layers on users PC.
+All layers can be fully customized. Users can write their own, and `aicage` builds the remaining layers on the user's PC.
 
 ### Image Updates
 
@@ -27,7 +27,7 @@ All layers can be fully customized - users can write their own and `aicage` buil
 
 ## Usage
 
-Clone this repo to `~/.aicage-custom` and start `aicage` with a coding-agent.
+Clone this repo to `~/.aicage-custom` and start `aicage` with a coding agent.
 
 ```shell
 git clone https://github.com/aicage/aicage-custom-samples.git ~/.aicage-custom
@@ -35,13 +35,17 @@ git clone https://github.com/aicage/aicage-custom-samples.git ~/.aicage-custom
 aicage <AGENT>
 ```
 
-### New extensions
+### Extensions
 
 Extensions are the easiest way to add more software to Aicage images.
 
-When starting `aicage` it will now suggest to add these extensions to images:
-- `act`: Runs GitHub workflows locally
-- `marker`: A dummy sample
+Current extension samples in this repository:
+- `act`: Run GitHub Actions locally
+- `cosign`: Install sigstore/cosign
+- `gh`: Install GitHub CLI
+- `imagemagick`: Install ImageMagick with Ghostscript and pngquant
+- `nvidia-cuda`: Install NVIDIA CUDA user-space tooling
+- `regctl`: Install regctl
 
 Aicage will automatically build a custom image with your chosen extensions on top of the `base+agent` image.
 
@@ -52,14 +56,24 @@ You can easily add your own extension by adding a folder to `~/.aicage-custom/ex
 Examples/Templates:
 
 - [act](extensions/act)
-- [marker](extensions/marker)
+- [cosign](extensions/cosign)
+- [gh](extensions/gh)
+- [imagemagick](extensions/imagemagick)
+- [nvidia-cuda](extensions/nvidia-cuda)
+- [regctl](extensions/regctl)
 
-### New custom agent
+### Custom agents
 
-The coding agent `forge` is now available with:
+Current custom agent samples in this repository:
+- `auggie`
+- `forge`
+- `kimi`
+- `vibe`
+
+Use one with:
 
 ```shell
-aicage forge
+aicage <AGENT>
 ```
 
 Aicage will automatically build a custom image with your chosen `base`.
@@ -70,17 +84,21 @@ You can easily add your own custom agent by adding a folder to `~/.aicage-custom
 
 Examples/Templates:
 
+- [auggie](agents/auggie)
 - [forge](agents/forge)
+- [kimi](agents/kimi)
+- [vibe](agents/vibe)
 - [aicage-image/agents](https://github.com/aicage/aicage-image/tree/main/agents) for the builtin agents.
 
-### New base-images
+### Base-images
 
-When selecting a `base-image` during startup you will see the sample custom bases:
+Current custom base-image samples in this repository:
 
+- `act`
+- `act-full`
 - `debian-mirror`
 - `minimal`
 - `php`
-- ...
 
 ### Add your own custom base-image
 
@@ -90,7 +108,11 @@ Add a folder to `~/.aicage-custom/base-images` for your personal base-image.
 
 Examples/Templates:
 
-- [base-images](base-images)
+- [act](base-images/act)
+- [act-full](base-images/act-full)
+- [debian-mirror](base-images/debian-mirror)
+- [minimal](base-images/minimal)
+- [php](base-images/php)
 - [aicage-image-base/bases](https://github.com/aicage/aicage-image-base/tree/main/bases) for the builtin bases
 
 > Notes:
@@ -139,7 +161,7 @@ check-jsonschema \
   --schemafile validation/base.schema.json \
   base-images/*/base.yml
 
-echo "Validate base.yml files with schema"
+echo "Validate extension.yml files with schema"
 check-jsonschema \
   --schemafile validation/extension.schema.json \
   extensions/*/extension.yml
