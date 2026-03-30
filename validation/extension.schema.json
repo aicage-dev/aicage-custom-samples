@@ -8,10 +8,19 @@
   ],
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "pattern": ".*\\S.*"
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "pattern": ".*\\S.*"
+    },
+    "shares": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": ".*\\S.*"
+      }
     }
   },
   "additionalProperties": false

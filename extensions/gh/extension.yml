@@ -1,2 +1,4 @@
 name: "GitHub CLI"
 description: "GitHub’s official command line tool"
+shares:
+  - ~/.config/gh

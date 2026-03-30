@@ -3,7 +3,6 @@
   "title": "AICAGE agent definition",
   "type": "object",
   "required": [
-    "agent_path",
     "agent_full_name",
     "agent_homepage"
   ],
@@ -14,23 +13,27 @@
         "files": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "pattern": ".*\\S.*"
           }
         },
         "directories": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "pattern": ".*\\S.*"
           }
         }
       },
       "additionalProperties": false
     },
     "agent_full_name": {
-      "type": "string"
+      "type": "string",
+      "pattern": ".*\\S.*"
     },
     "agent_homepage": {
-      "type": "string"
+      "type": "string",
+      "pattern": ".*\\S.*"
     },
     "build_local": {
       "type": "boolean",
@@ -39,13 +42,15 @@
     "base_exclude": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "pattern": ".*\\S.*"
       }
     },
     "base_distro_exclude": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "pattern": ".*\\S.*"
       }
     }
   },
