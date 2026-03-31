@@ -43,7 +43,6 @@ Current extension samples in this repository:
 - `act`: Run GitHub Actions locally
 - `cosign`: Install sigstore/cosign
 - `gh`: Install GitHub CLI
-- `imagemagick`: Install ImageMagick with Ghostscript and pngquant
 - `nvidia-cuda`: Install NVIDIA CUDA user-space tooling
 - `regctl`: Install regctl
 
@@ -58,7 +57,6 @@ Examples/Templates:
 - [act](extensions/act)
 - [cosign](extensions/cosign)
 - [gh](extensions/gh)
-- [imagemagick](extensions/imagemagick)
 - [nvidia-cuda](extensions/nvidia-cuda)
 - [regctl](extensions/regctl)
 
