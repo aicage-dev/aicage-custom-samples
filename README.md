@@ -42,9 +42,12 @@ Extensions are the easiest way to add more software to Aicage images.
 Current extension samples in this repository:
 - `act`: Run GitHub Actions locally
 - `cosign`: Install sigstore/cosign
+- `dotnet`: Install the .NET SDK
 - `gh`: Install GitHub CLI
 - `nvidia-cuda`: Install NVIDIA CUDA user-space tooling
+- `php`: Install PHP CLI tooling and Composer
 - `regctl`: Install regctl
+- `ruby`: Install Ruby and Bundler
 
 Aicage will automatically build a custom image with your chosen extensions on top of the `base+agent` image.
 
@@ -56,9 +59,12 @@ Examples/Templates:
 
 - [act](extensions/act)
 - [cosign](extensions/cosign)
+- [dotnet](extensions/dotnet)
 - [gh](extensions/gh)
 - [nvidia-cuda](extensions/nvidia-cuda)
+- [php](extensions/php)
 - [regctl](extensions/regctl)
+- [ruby](extensions/ruby)
 
 ### Custom agents
 
