@@ -24,13 +24,25 @@ check-jsonschema \
   --schemafile validation/base.schema.json \
   base-images/*/base.y*ml
 
-echo "Validate base.yml files with schema"
+echo "Validate extension.yml files with schema"
 check-jsonschema \
   --schemafile validation/extension.schema.json \
   extensions/*/extension.y*ml
 
-echo "Run  yamllint"
+echo "Run yamllint"
 yamllint .
+
+mapfile -t shell_scripts < <(find . -type f -name '*.sh' -not -path './.venv/*' | sort)
+
+echo "Validate shell scripts with bash -n"
+for script in "${shell_scripts[@]}"; do
+  bash -n "${script}"
+done
+
+if command -v shellcheck >/dev/null 2>&1 && [[ ${#shell_scripts[@]} -gt 0 ]]; then
+  echo "Run shellcheck"
+  shellcheck "${shell_scripts[@]}"
+fi
 
 echo "Validate Markdown"
 pymarkdown --config .pymarkdown.json scan --recurse --exclude '.venv/**' .

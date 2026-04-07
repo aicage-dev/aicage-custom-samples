@@ -1,0 +1,96 @@
+name: Test Extensions
+run-name: Test extensions (${{ github.ref_name }})
+
+"on":
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  discover-extension-matrices:
+    name: Discover extension matrices
+    runs-on: ubuntu-latest
+    env:
+      DISTRO_IMAGES_JSON: >-
+        {"alpine":"ghcr.io/aicage/aicage:codex-alpine","debian":"ghcr.io/aicage/aicage:codex-debian","fedora":"ghcr.io/aicage/aicage:codex-fedora"}
+      EXCLUDED_AMD64_JSON: >-
+        [["nvidia-cuda","alpine"]]
+      EXCLUDED_ARM64_JSON: >-
+        [["nvidia-cuda","alpine"],["nvidia-cuda","debian"],["nvidia-cuda","fedora"]]
+    outputs:
+      matrix_amd64: ${{ steps.generate.outputs.matrix_amd64 }}
+      matrix_arm64: ${{ steps.generate.outputs.matrix_arm64 }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: Generate matrices
+        id: generate
+        run: |
+          matrix_amd64="$(scripts/generate-extension-matrix.py \
+            '${{ env.DISTRO_IMAGES_JSON }}' \
+            '${{ env.EXCLUDED_AMD64_JSON }}')"
+          echo "matrix_amd64=${matrix_amd64}" >> "$GITHUB_OUTPUT"
+
+          matrix_arm64="$(scripts/generate-extension-matrix.py \
+            '${{ env.DISTRO_IMAGES_JSON }}' \
+            '${{ env.EXCLUDED_ARM64_JSON }}')"
+          echo "matrix_arm64=${matrix_arm64}" >> "$GITHUB_OUTPUT"
+
+  test-extensions-amd64:
+    needs: discover-extension-matrices
+    name: "${{ matrix.extension }} on ${{ matrix.distro }} (amd64)"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.discover-extension-matrices.outputs.matrix_amd64) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: Set up Bats
+        uses: mig4/setup-bats@af9a00deb21b5d795cabfeaa8d9060410377686d  # v1.2.0
+
+      - name: Build extension image
+        run: |
+          scripts/build-extension.sh \
+            --extension "${{ matrix.extension }}" \
+            --from-image "${{ matrix.from_image }}" \
+            --image "aicage-custom-samples:test-extension-${{ matrix.extension }}"
+
+      - name: Run extension smoke tests
+        run: |
+          scripts/test-extension.sh \
+            --extension "${{ matrix.extension }}" \
+            --image "aicage-custom-samples:test-extension-${{ matrix.extension }}"
+
+  test-extensions-arm64:
+    needs: discover-extension-matrices
+    name: "${{ matrix.extension }} on ${{ matrix.distro }} (arm64)"
+    runs-on: ubuntu-24.04-arm
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.discover-extension-matrices.outputs.matrix_arm64) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: Set up Bats
+        uses: mig4/setup-bats@af9a00deb21b5d795cabfeaa8d9060410377686d  # v1.2.0
+
+      - name: Build extension image
+        run: |
+          scripts/build-extension.sh \
+            --extension "${{ matrix.extension }}" \
+            --from-image "${{ matrix.from_image }}" \
+            --image "aicage-custom-samples:test-extension-${{ matrix.extension }}"
+
+      - name: Run extension smoke tests
+        run: |
+          scripts/test-extension.sh \
+            --extension "${{ matrix.extension }}" \
+            --image "aicage-custom-samples:test-extension-${{ matrix.extension }}"

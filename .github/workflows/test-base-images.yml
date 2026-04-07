@@ -1,0 +1,44 @@
+name: Test Base Images
+run-name: Test base images (${{ github.ref_name }})
+
+"on":
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  test-base-images:
+    name: Base ${{ matrix.base }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        base:
+          - act
+          - act-full
+          - debian-mirror
+          - minimal
+          - php
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: Set up Bats
+        uses: mig4/setup-bats@af9a00deb21b5d795cabfeaa8d9060410377686d  # v1.2.0
+
+      - name: Build base image
+        run: |
+          chmod +x scripts/*.sh validation/lint.sh
+          scripts/build-base.sh \
+            --base "${{ matrix.base }}" \
+            --image "aicage-custom-samples:test-base-${{ matrix.base }}"
+
+      - name: Run base smoke tests
+        run: |
+          scripts/test-base.sh \
+            --base "${{ matrix.base }}" \
+            --image "aicage-custom-samples:test-base-${{ matrix.base }}"

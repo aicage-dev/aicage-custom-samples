@@ -1,0 +1,44 @@
+name: Test Agents
+run-name: Test agents (${{ github.ref_name }})
+
+"on":
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  test-agents:
+    name: Agent ${{ matrix.agent }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        agent:
+          - auggie
+          - forge
+          - kimi
+          - vibe
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: Set up Bats
+        uses: mig4/setup-bats@af9a00deb21b5d795cabfeaa8d9060410377686d  # v1.2.0
+
+      - name: Build agent image
+        run: |
+          chmod +x scripts/*.sh agents/*/*.sh
+          scripts/build-agent.sh \
+            --agent "${{ matrix.agent }}" \
+            --base-image "ghcr.io/aicage/aicage-image-base:ubuntu" \
+            --image "aicage-custom-samples:test-agent-${{ matrix.agent }}"
+
+      - name: Run agent smoke tests
+        run: |
+          scripts/test-agent.sh \
+            --agent "${{ matrix.agent }}" \
+            --image "aicage-custom-samples:test-agent-${{ matrix.agent }}"
