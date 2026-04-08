@@ -32,7 +32,6 @@ jobs:
 
       - name: Build base image
         run: |
-          chmod +x scripts/*.sh validation/lint.sh
           scripts/build-base.sh \
             --base "${{ matrix.base }}" \
             --image "aicage-custom-samples:test-base-${{ matrix.base }}"

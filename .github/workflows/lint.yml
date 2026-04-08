@@ -31,4 +31,4 @@ jobs:
           pip install -r requirements-dev.txt
 
       - name: Run lint.sh
-        run: validation/lint.sh
+        run: scripts/lint.sh
