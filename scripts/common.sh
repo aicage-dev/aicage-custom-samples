@@ -22,18 +22,3 @@ base_from_image() {
   local base="$1"
   yaml_scalar "${ROOT_DIR}/base-images/${base}/base.yml" from_image
 }
-
-base_test_suite() {
-  local base="$1"
-  case "${base}" in
-    minimal)
-      echo minimal
-      ;;
-    debian-mirror)
-      echo debian-mirror
-      ;;
-    *)
-      echo full
-      ;;
-  esac
-}
