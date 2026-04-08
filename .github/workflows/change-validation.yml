@@ -1,0 +1,26 @@
+name: Change Validation
+run-name: Change validation (${{ github.ref_name }})
+
+"on":
+  pull_request: {}
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+concurrency:
+  group: change-validation-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    uses: ./.github/workflows/lint.yml
+
+  test-agents:
+    uses: ./.github/workflows/test-agents.yml
+
+  test-base-images:
+    uses: ./.github/workflows/test-base-images.yml
+
+  test-extensions:
+    uses: ./.github/workflows/test-extensions.yml

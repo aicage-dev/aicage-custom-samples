@@ -2,13 +2,8 @@ name: Test Agents
 run-name: Test agents (${{ github.ref_name }})
 
 "on":
-  push:
-    branches:
-      - main
-
-concurrency:
-  group: ${{ github.workflow }}
-  cancel-in-progress: true
+  workflow_call: {}
+  workflow_dispatch: {}
 
 jobs:
   test-agents:
