@@ -6,7 +6,7 @@ SMOKE_DIR="${ROOT_DIR}/tests/extensions/smoke"
 EXTENSION=""
 IMAGE_REF=""
 
-# shellcheck source=../scripts/common.sh
+# shellcheck source=./scripts/common.sh
 source "${ROOT_DIR}/scripts/common.sh"
 
 usage() {
@@ -47,5 +47,4 @@ done
 
 log "Running extension smoke suite '${EXTENSION}'"
 AICAGE_EXTENSION_IMAGE="${IMAGE_REF}" \
-  EXTENSION="${EXTENSION}" \
   bats "${SMOKE_DIR}/shared" "${SMOKE_DIR}/${EXTENSION}" "$@"

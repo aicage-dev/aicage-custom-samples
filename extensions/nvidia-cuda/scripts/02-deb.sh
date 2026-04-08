@@ -21,6 +21,7 @@ if [[ ! -r /etc/os-release ]]; then
   exit 1
 fi
 
+# shellcheck disable=SC1091
 . /etc/os-release
 
 os_like=" ${ID_LIKE:-} "

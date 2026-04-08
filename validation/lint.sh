@@ -6,6 +6,7 @@ REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "${REPO_ROOT}"
 
 if [[ -d .venv ]]; then
+  # shellcheck disable=SC1091
   source .venv/bin/activate
 
   if [[ ! -f .venv/bin/pymarkdown ]]; then
@@ -41,7 +42,7 @@ done
 
 if command -v shellcheck >/dev/null 2>&1 && [[ ${#shell_scripts[@]} -gt 0 ]]; then
   echo "Run shellcheck"
-  shellcheck "${shell_scripts[@]}"
+  shellcheck -x "${shell_scripts[@]}"
 fi
 
 echo "Validate Markdown"

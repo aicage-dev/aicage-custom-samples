@@ -6,7 +6,7 @@ SMOKE_DIR="${ROOT_DIR}/tests/agents/smoke"
 AGENT=""
 IMAGE_REF=""
 
-# shellcheck source=../scripts/common.sh
+# shellcheck source=./scripts/common.sh
 source "${ROOT_DIR}/scripts/common.sh"
 
 usage() {
