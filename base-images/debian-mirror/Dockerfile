@@ -16,10 +16,10 @@ FROM ${FROM_IMAGE} AS from_image
 ARG AICAGE_INSTALL_DISTRO
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    AICAGE_USER=aicage \
+    LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8 \
     AICAGE_UID=1000 \
     AICAGE_GID=1000 \
-    AICAGE_WORKSPACE=/workspace \
     NPM_CONFIG_PREFIX=/usr/local \
     PIPX_HOME=/opt/pipx \
     PIPX_BIN_DIR=/opt/pipx/bin \
