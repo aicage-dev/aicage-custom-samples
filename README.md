@@ -48,6 +48,7 @@ Current extension samples in this repository:
 - `php`: Install PHP CLI tooling and Composer
 - `regctl`: Install regctl
 - `ruby`: Install Ruby and Bundler
+- `shellcheck`: Install ShellCheck
 
 Aicage will automatically build a custom image with your chosen extensions on top of the `base+agent` image.
 
@@ -65,6 +66,7 @@ Examples/Templates:
 - [php](extensions/php)
 - [regctl](extensions/regctl)
 - [ruby](extensions/ruby)
+- [shellcheck](extensions/shellcheck)
 
 ### Custom agents
 
