@@ -14,7 +14,7 @@ setup() {
   fi
 }
 
-@test "container boots" {
+@test "test_boots_container" {
   run docker run --rm \
     --env AICAGE_ENTRYPOINT_CMD=/bin/bash \
     --env AICAGE_WORKSPACE=/workspace \
@@ -24,7 +24,7 @@ setup() {
   [[ "$output" == *"${AGENT}-boot"* ]]
 }
 
-@test "agent binary present" {
+@test "test_agent_binary_present" {
   run docker run --rm \
     --env AICAGE_ENTRYPOINT_CMD=/bin/bash \
     --env AICAGE_WORKSPACE=/workspace \
@@ -34,11 +34,26 @@ setup() {
   [[ "$output" == *"${AGENT}"* ]]
 }
 
-@test "required base toolchains present" {
+@test "test_required_packages" {
   run docker run --rm \
     --env AICAGE_ENTRYPOINT_CMD=/bin/bash \
     --env AICAGE_WORKSPACE=/workspace \
     "${AICAGE_IMAGE}" \
-    -c "git --version >/dev/null && python3 --version >/dev/null && node --version >/dev/null && npm --version >/dev/null"
+    -c \
+    "git --version >/dev/null && python3 --version >/dev/null && node --version >/dev/null && npm --version >/dev/null"
   [ "$status" -eq 0 ]
+}
+
+@test "test_codex_bwrap_present" {
+  if [[ "${AGENT}" != "codex" ]]; then
+    skip "Codex-specific requirement"
+  fi
+
+  run docker run --rm \
+    --env AICAGE_ENTRYPOINT_CMD=/bin/bash \
+    --env AICAGE_WORKSPACE=/workspace \
+    "${AICAGE_IMAGE}" \
+    -c "command -v bwrap && test -x /usr/bin/bwrap"
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"/usr/bin/bwrap"* ]]
 }

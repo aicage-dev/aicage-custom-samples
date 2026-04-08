@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SMOKE_DIR="${ROOT_DIR}/tests/base-images/smoke"
+SMOKE_DIR="${ROOT_DIR}/tests/base/smoke"
 BASE=""
 IMAGE_REF=""
 
