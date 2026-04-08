@@ -56,6 +56,22 @@ dnf clean all
 dnf install -y cuda-toolkit
 dnf clean all
 
+cuda_bin_dir=""
+for candidate in /usr/local/cuda/bin /usr/local/cuda-*/bin; do
+  if [[ -x "${candidate}/nvcc" ]]; then
+    cuda_bin_dir="${candidate}"
+    break
+  fi
+done
+
+if [[ -z "${cuda_bin_dir}" ]]; then
+  echo "CUDA compiler nvcc was not found after installation." >&2
+  exit 1
+fi
+
+ln -sf "${cuda_bin_dir}/nvcc" /usr/local/bin/nvcc
+echo "Exposed CUDA compiler on PATH: nvcc"
+
 mkdir -p /usr/local/share/aicage-extensions
 printf '%s\n' "cuda-toolkit" > /usr/local/share/aicage-extensions/nvidia-cuda.txt
 
