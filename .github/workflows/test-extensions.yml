@@ -53,7 +53,9 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
 
       - name: Set up Bats
-        uses: mig4/setup-bats@af9a00deb21b5d795cabfeaa8d9060410377686d  # v1.2.0
+        uses: bats-core/bats-action@77d6fb60505b4d0d1d73e48bd035b55074bbfb43  # v4.0.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build extension image
         run: |
@@ -80,7 +82,9 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
 
       - name: Set up Bats
-        uses: mig4/setup-bats@af9a00deb21b5d795cabfeaa8d9060410377686d  # v1.2.0
+        uses: bats-core/bats-action@77d6fb60505b4d0d1d73e48bd035b55074bbfb43  # v4.0.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build extension image
         run: |
