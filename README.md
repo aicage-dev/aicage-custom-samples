@@ -49,6 +49,7 @@ Current extension samples in this repository:
 - `regctl`: Install regctl
 - `ruby`: Install Ruby and Bundler
 - `shellcheck`: Install ShellCheck
+- `skopeo`: Work with remote container images and registries
 
 Aicage will automatically build a custom image with your chosen extensions on top of the `base+agent` image.
 
@@ -67,6 +68,7 @@ Examples/Templates:
 - [regctl](extensions/regctl)
 - [ruby](extensions/ruby)
 - [shellcheck](extensions/shellcheck)
+- [skopeo](extensions/skopeo)
 
 ### Custom agents
 
