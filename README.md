@@ -21,6 +21,7 @@ All layers can be fully customized. Users can write their own, and `aicage` buil
 ### Image Updates
 
 `aicage` also updates the images when needed by checking:
+
 - base-image digest local vs. remote
 - agent version
 - (extensions currently not checked)
@@ -40,6 +41,7 @@ aicage <AGENT>
 Extensions are the easiest way to add more software to Aicage images.
 
 Current extension samples in this repository:
+
 - `act`: Run GitHub Actions locally
 - `cosign`: Install sigstore/cosign
 - `dotnet`: Install the .NET SDK
@@ -73,6 +75,7 @@ Examples/Templates:
 ### Custom agents
 
 Current custom agent samples in this repository:
+
 - `auggie`
 - `forge`
 - `kimi`
