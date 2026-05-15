@@ -5,6 +5,9 @@ run-name: Test base images (${{ github.ref_name }})
   workflow_call: {}
   workflow_dispatch: {}
 
+permissions:
+  contents: read
+
 jobs:
   test-base-images:
     name: Base ${{ matrix.base }}

@@ -5,6 +5,9 @@ run-name: Test agents (${{ github.ref_name }})
   workflow_call: {}
   workflow_dispatch: {}
 
+permissions:
+  contents: read
+
 jobs:
   test-agents:
     name: Agent ${{ matrix.agent }}

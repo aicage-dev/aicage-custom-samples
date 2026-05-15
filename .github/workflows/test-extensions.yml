@@ -5,6 +5,9 @@ run-name: Test extensions (${{ github.ref_name }})
   workflow_call: {}
   workflow_dispatch: {}
 
+permissions:
+  contents: read
+
 jobs:
   discover-extension-matrices:
     name: Discover extension matrices
