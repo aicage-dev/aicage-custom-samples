@@ -108,7 +108,6 @@ Examples/Templates:
 Current custom base-image samples in this repository:
 
 - `act`
-- `act-full`
 - `debian-mirror`
 - `minimal`
 - `php`
@@ -122,7 +121,6 @@ Add a folder to `~/.aicage-custom/base-images` for your personal base-image.
 Examples/Templates:
 
 - [act](base-images/act)
-- [act-full](base-images/act-full)
 - [debian-mirror](base-images/debian-mirror)
 - [minimal](base-images/minimal)
 - [php](base-images/php)
