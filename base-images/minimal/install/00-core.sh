@@ -8,4 +8,5 @@ apk add --no-cache \
   git \
   patch \
   shadow \
-  tini
+  tini \
+  tzdata

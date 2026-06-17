@@ -10,3 +10,6 @@ apk add --no-cache \
 
 
 npm config set prefix /usr/local
+
+npm install -g corepack
+corepack enable
