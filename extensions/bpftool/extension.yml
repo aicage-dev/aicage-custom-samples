@@ -1,0 +1,2 @@
+name: "bpftool"
+description: "Inspection and simple manipulation of eBPF programs and maps"
