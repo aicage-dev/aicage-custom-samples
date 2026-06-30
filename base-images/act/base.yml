@@ -1,3 +1,6 @@
 from_image: ghcr.io/catthehacker/ubuntu:act-latest
 base_image_distro: Ubuntu
 base_image_description: (Ubuntu) Runner image from act (act runs GitHub Actions locally)
+architectures:
+  - amd64
+  - arm64

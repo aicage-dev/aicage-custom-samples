@@ -130,7 +130,7 @@ Examples/Templates:
 >
 > - A base-image must contain everything for development.
 > - Plus the `entrypoint.sh` from `aicage` - feel free to copy and extend it.
-> - The base.yml of builtin bases is slightly different
+> - Use the same `base.yml` schema as the builtin bases.
 
 ### Test build your custom base-image
 
