@@ -50,7 +50,6 @@ Current extension samples in this repository:
 - `nvidia-cuda`: Install NVIDIA CUDA user-space tooling
 - `php`: Install PHP CLI tooling and Composer
 - `regctl`: Install regctl
-- `ruby`: Install Ruby and Bundler
 - `shellcheck`: Install ShellCheck
 - `skopeo`: Work with remote container images and registries
 
@@ -70,7 +69,6 @@ Examples/Templates:
 - [nvidia-cuda](extensions/nvidia-cuda)
 - [php](extensions/php)
 - [regctl](extensions/regctl)
-- [ruby](extensions/ruby)
 - [shellcheck](extensions/shellcheck)
 - [skopeo](extensions/skopeo)
 
