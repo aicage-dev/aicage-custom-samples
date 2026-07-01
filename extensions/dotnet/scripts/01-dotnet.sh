@@ -61,7 +61,6 @@ fi
 mkdir -p "${DOTNET_INSTALL_DIR}"
 
 tmp_dir="$(mktemp -d)"
-trap 'rm -rf "${tmp_dir}"' EXIT
 
 curl -fsSL https://dot.net/v1/dotnet-install.sh -o "${tmp_dir}/dotnet-install.sh"
 chmod +x "${tmp_dir}/dotnet-install.sh"
@@ -72,6 +71,7 @@ chmod +x "${tmp_dir}/dotnet-install.sh"
   --install-dir "${DOTNET_INSTALL_DIR}"
 
 ln -sf "${DOTNET_INSTALL_DIR}/dotnet" /usr/local/bin/dotnet
+rm -rf "${tmp_dir}"
 
 echo "dotnet version output:"
 dotnet --version

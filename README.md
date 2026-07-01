@@ -46,6 +46,7 @@ Current extension samples in this repository:
 - `crane`: Install crane
 - `cosign`: Install sigstore/cosign
 - `dotnet`: Install the .NET SDK
+- `gcloud`: Install the Google Cloud CLI
 - `gh`: Install GitHub CLI
 - `nvidia-cuda`: Install NVIDIA CUDA user-space tooling
 - `php`: Install PHP CLI tooling and Composer
@@ -65,6 +66,7 @@ Examples/Templates:
 - [crane](extensions/crane)
 - [cosign](extensions/cosign)
 - [dotnet](extensions/dotnet)
+- [gcloud](extensions/gcloud)
 - [gh](extensions/gh)
 - [nvidia-cuda](extensions/nvidia-cuda)
 - [php](extensions/php)

@@ -1,0 +1,5 @@
+name: "Google Cloud CLI"
+description: "Google Cloud command line tools"
+shares:
+  - ~/.config/gcloud
+  - ~/.boto
