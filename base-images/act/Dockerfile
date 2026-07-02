@@ -58,6 +58,8 @@ RUN --mount=type=bind,source=helpers,target=/tmp/aicage/helpers,readonly \
     cp "${AICAGE_IMAGE_BASE_DIR}"/entrypoint.sh /usr/local/bin/entrypoint.sh && \
     \
     echo "Clean up: Remove downloaded files ..." && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* && \
     rm -rf "${AICAGE_IMAGE_BASE_DIR}" && \
     rm -rv /tmp/aicage/helpers-run
 

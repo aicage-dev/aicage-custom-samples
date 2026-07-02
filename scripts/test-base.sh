@@ -103,5 +103,4 @@ case "${BASE}" in
 esac
 
 AICAGE_IMAGE_BASE_IMAGE="${IMAGE_REF}" \
-  BASE_ALIAS="${BASE}" \
   bats "${bats_target}" "$@"
