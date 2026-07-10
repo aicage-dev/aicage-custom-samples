@@ -57,20 +57,20 @@ RUN --mount=type=bind,source=helpers,target=/tmp/aicage/helpers,readonly \
 
 # Install npm to install coding agents (most need node with npm)
 # This example uses the installation scripts from aicage-image-base
-RUN "${AICAGE_IMAGE_BASE_DIR}"/os-installers/generic/install_node.sh
+RUN "${AICAGE_IMAGE_BASE_DIR}"/scripts/os-installers/generic/install_node.sh
 
 # Recommended: Install Python
 # Coding agents like using Python for their tasks
 # Some MCP-servers are setup with (uvx)
-RUN "${AICAGE_IMAGE_BASE_DIR}/os-installers/distro/${AICAGE_INSTALL_DISTRO}/install/20-python.sh"
+RUN "${AICAGE_IMAGE_BASE_DIR}/scripts/os-installers/distro/${AICAGE_INSTALL_DISTRO}/install/20-python.sh"
 
 # Optional: Install Docker CLI and build essentials
 # Needed if you want to use docker from inside the containers
-RUN "${AICAGE_IMAGE_BASE_DIR}/os-installers/distro/${AICAGE_INSTALL_DISTRO}/install/40-docker.sh"
+RUN "${AICAGE_IMAGE_BASE_DIR}/scripts/os-installers/distro/${AICAGE_INSTALL_DISTRO}/install/40-docker.sh"
 
 # Copy aicage entrypoint.sh
 RUN echo "Install: Copy aicage entrypoint.sh ..." && \
-    cp "${AICAGE_IMAGE_BASE_DIR}"/entrypoint.sh /usr/local/bin/entrypoint.sh
+    cp "${AICAGE_IMAGE_BASE_DIR}"/scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
 
 # Clean up apt and installation scripts from aicage-image-base
 RUN apt-get clean && \
