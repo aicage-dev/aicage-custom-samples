@@ -6,6 +6,6 @@ skip-check:
   # Ensure the base image uses a non latest version tag
   - CKV_DOCKER_7
   # Ensure the last USER is not root
-  - CKV_DOCKER_8
+  # - CKV_DOCKER_8
   # Ensure the base image uses a non latest version tag
   - CKV_GHA_7
