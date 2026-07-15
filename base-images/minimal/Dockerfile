@@ -26,7 +26,7 @@ RUN --mount=type=bind,source=helpers,target=/tmp/aicage/helpers,readonly \
     tmp_dir="$(mktemp -d)" && \
     /tmp/aicage/helpers/install-cosign.sh && \
     /tmp/aicage/helpers/get-aicage-release-artifact.sh aicage-image-base "${tmp_dir}" && \
-    cp "${tmp_dir}"/entrypoint.sh /usr/local/bin/entrypoint.sh && \
+    cp "${tmp_dir}"/scripts/entrypoint.sh /usr/local/bin/entrypoint.sh && \
     rm -rf "${tmp_dir}"
 
 ENV AICAGE_ENTRYPOINT_CMD=bash
