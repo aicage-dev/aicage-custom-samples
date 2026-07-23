@@ -53,6 +53,7 @@ Current extension samples in this repository:
 - `regctl`: Install regctl
 - `shellcheck`: Install ShellCheck
 - `skopeo`: Work with remote container images and registries
+- `wl-clipboard`: Install Wayland clipboard tools including `wl-copy`
 
 Aicage will automatically build a custom image with your chosen extensions on top of the `base+agent` image.
 
@@ -73,6 +74,7 @@ Examples/Templates:
 - [regctl](extensions/regctl)
 - [shellcheck](extensions/shellcheck)
 - [skopeo](extensions/skopeo)
+- [wl-clipboard](extensions/wl-clipboard)
 
 ### Custom agents
 
