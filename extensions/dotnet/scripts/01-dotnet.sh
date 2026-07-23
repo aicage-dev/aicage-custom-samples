@@ -53,6 +53,19 @@ elif command -v rpm >/dev/null 2>&1; then
     openssl-libs \
     zlib
   dnf clean all
+elif command -v pacman >/dev/null 2>&1; then
+  # *** Arch ***
+  pacman -Sy --noconfirm \
+    bash \
+    ca-certificates \
+    curl \
+    gcc-libs \
+    icu \
+    krb5 \
+    libunwind \
+    openssl \
+    zlib
+  pacman -Scc --noconfirm
 else
   echo "Unsupported distro" >&2
   exit 1

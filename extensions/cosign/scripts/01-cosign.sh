@@ -38,6 +38,13 @@ elif command -v rpm >/dev/null 2>&1; then
   curl -O -L "https://github.com/sigstore/cosign/releases/latest/download/${rpm_file}"
   rpm -ivh "${rpm_file}"
   rm "${rpm_file}"
+elif command -v pacman >/dev/null 2>&1; then
+  # *** Arch ***
+  pacman -Sy --noconfirm cosign
+  pacman -Scc --noconfirm
+else
+  echo "Unsupported distro" >&2
+  exit 1
 fi
 
 echo "cosign version output:"

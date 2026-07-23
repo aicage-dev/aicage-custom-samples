@@ -23,6 +23,13 @@ elif command -v rpm >/dev/null 2>&1; then
   dnf config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
   dnf install -y gh --repo gh-cli
   dnf clean all
+elif command -v pacman >/dev/null 2>&1; then
+  # *** Arch ***
+  pacman -Sy --noconfirm github-cli
+  pacman -Scc --noconfirm
+else
+  echo "Unsupported distro" >&2
+  exit 1
 fi
 
 echo "gh version output:"

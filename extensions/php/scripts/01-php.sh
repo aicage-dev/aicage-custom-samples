@@ -39,6 +39,12 @@ elif command -v rpm >/dev/null 2>&1; then
     php-xml \
     php-zip
   dnf clean all
+elif command -v pacman >/dev/null 2>&1; then
+  # *** Arch ***
+  pacman -Sy --noconfirm \
+    composer \
+    php
+  pacman -Scc --noconfirm
 else
   echo "Unsupported distro" >&2
   exit 1
