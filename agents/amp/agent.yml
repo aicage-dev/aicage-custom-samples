@@ -1,0 +1,6 @@
+agent_path:
+  directories:
+    - ~/.amp
+    - ~/.config/amp
+agent_full_name: Amp CLI
+agent_homepage: https://ampcode.com/
