@@ -80,9 +80,13 @@ Examples/Templates:
 
 Current custom agent samples in this repository:
 
+- `aider`
+- `amp`
 - `auggie`
+- `cline`
 - `forge`
 - `kimi`
+- `kiro`
 - `vibe`
 
 Use one with:
@@ -99,9 +103,13 @@ You can easily add your own custom agent by adding a folder to `~/.aicage-custom
 
 Examples/Templates:
 
+- [aider](agents/aider)
+- [amp](agents/amp)
 - [auggie](agents/auggie)
+- [cline](agents/cline)
 - [forge](agents/forge)
 - [kimi](agents/kimi)
+- [kiro](agents/kiro)
 - [vibe](agents/vibe)
 - [aicage-image/agents](https://github.com/aicage/aicage-image/tree/main/agents) for the builtin agents.
 

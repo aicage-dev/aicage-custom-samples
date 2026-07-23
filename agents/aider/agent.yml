@@ -1,0 +1,10 @@
+agent_path:
+  directories:
+    - ~/.aider
+  files:
+    - ~/.env
+    - ~/.aider.conf.yml
+    - ~/.aider.model.settings.yml
+    - ~/.aider.model.metadata.json
+agent_full_name: Aider
+agent_homepage: https://aider.chat/
