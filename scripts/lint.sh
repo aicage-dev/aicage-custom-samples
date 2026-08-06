@@ -4,12 +4,17 @@ set -euo pipefail
 repo_root=$(git rev-parse --show-toplevel)
 cd "$repo_root"
 
-echo "Validate YAML"
+# YAML
 yamllint .
 
-echo "Validate Markdown"
-pymarkdown --config .pymarkdown.json scan --recurse --exclude '.venv/**' .
+# Markdown
+pymarkdown \
+  --config .pymarkdown.json scan \
+  --recurse \
+  --exclude '**/.venv*/**' \
+  .
 
+# Shellcheck
 mapfile -t shell_scripts < <(find . -type f -name '*.sh' -not -path './.venv/*' | sort)
 
 if [[ ${#shell_scripts[@]} -gt 0 ]]; then
