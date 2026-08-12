@@ -74,6 +74,9 @@ RUN set -eu; \
   elif command -v dnf >/dev/null 2>&1; then \
     dnf install -y bash ca-certificates curl tar unzip xz && \
     dnf clean all; \
+  elif command -v pacman >/dev/null 2>&1; then \
+    pacman -Sy --noconfirm --needed bash ca-certificates curl tar unzip xz && \
+    pacman -Scc --noconfirm; \
   else \
     echo "Unsupported distro" >&2; \
     exit 1; \
