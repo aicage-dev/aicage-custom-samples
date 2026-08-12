@@ -13,7 +13,9 @@ jobs:
     name: Discover extension matrices
     runs-on: ubuntu-latest
     env:
-      DISTRO_IMAGES_JSON: >-
+      DISTRO_IMAGES_AMD64_JSON: >-
+        {"alpine":"ghcr.io/aicage/aicage:codex-alpine","arch":"ghcr.io/aicage/aicage:codex-arch","debian":"ghcr.io/aicage/aicage:codex-debian","fedora":"ghcr.io/aicage/aicage:codex-fedora"}
+      DISTRO_IMAGES_ARM64_JSON: >-
         {"alpine":"ghcr.io/aicage/aicage:codex-alpine","debian":"ghcr.io/aicage/aicage:codex-debian","fedora":"ghcr.io/aicage/aicage:codex-fedora"}
       EXCLUDED_AMD64_JSON: >-
         [["nvidia-cuda","alpine"]]
@@ -31,17 +33,18 @@ jobs:
       - name: Generate matrices
         id: generate
         env:
-          DISTRO_IMAGES_JSON: ${{ env.DISTRO_IMAGES_JSON }}
+          DISTRO_IMAGES_AMD64_JSON: ${{ env.DISTRO_IMAGES_AMD64_JSON }}
+          DISTRO_IMAGES_ARM64_JSON: ${{ env.DISTRO_IMAGES_ARM64_JSON }}
           EXCLUDED_AMD64_JSON: ${{ env.EXCLUDED_AMD64_JSON }}
           EXCLUDED_ARM64_JSON: ${{ env.EXCLUDED_ARM64_JSON }}
         run: |
           matrix_amd64="$(scripts/generate-extension-matrix.py \
-            "$DISTRO_IMAGES_JSON" \
+            "$DISTRO_IMAGES_AMD64_JSON" \
             "$EXCLUDED_AMD64_JSON")"
           echo "matrix_amd64=${matrix_amd64}" >> "$GITHUB_OUTPUT"
 
           matrix_arm64="$(scripts/generate-extension-matrix.py \
-            "$DISTRO_IMAGES_JSON" \
+            "$DISTRO_IMAGES_ARM64_JSON" \
             "$EXCLUDED_ARM64_JSON")"
           echo "matrix_arm64=${matrix_arm64}" >> "$GITHUB_OUTPUT"
 
