@@ -28,8 +28,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PIPX_BIN_DIR=/opt/pipx/bin \
     PATH="/opt/pipx/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 
-USER root
-
 ARG AICAGE_IMAGE_BASE_DIR=/tmp/aicage-image-base
 
 RUN --mount=type=bind,source=helpers,target=/tmp/aicage/helpers,readonly \
