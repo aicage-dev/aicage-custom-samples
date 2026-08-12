@@ -146,6 +146,11 @@ elif command -v dpkg >/dev/null 2>&1; then
 elif command -v rpm >/dev/null 2>&1; then
   # *** RedHat/Fedora/CentOS ***
   install_from_rpm_repo
+elif command -v pacman >/dev/null 2>&1; then
+  # *** Arch / generic Linux archive install ***
+  pacman -Sy --noconfirm --needed ca-certificates curl python tar
+  pacman -Scc --noconfirm
+  install_from_archive
 else
   # *** Generic Linux ***
   install_from_archive
