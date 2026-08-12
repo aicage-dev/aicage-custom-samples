@@ -1,10 +1,6 @@
 # NVIDIA CUDA Extension
 
-Use it with:
-
-```bash
-aicage --gpus all -- <agent>
-```
+Use it with Docker argument `--gpus all`.
 
 Host requirements:
 
@@ -18,6 +14,7 @@ Supported image families:
 
 - Debian/Ubuntu via `dpkg`
 - Fedora/RPM via `rpm` and `dnf`
+- Arch Linux via `pacman`
 - `amd64` / `x86_64` only
 
 It does not install the kernel driver or NVIDIA Container Toolkit.
