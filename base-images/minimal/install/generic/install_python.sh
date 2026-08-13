@@ -9,7 +9,14 @@ if python3 -m pip help install 2>/dev/null | grep -q -- --break-system-packages;
   PIP_ARGS+=(--break-system-packages)
 fi
 
-python3 -m pip install "${PIP_ARGS[@]}" --ignore-installed --upgrade pip setuptools wheel
+pip_packages=(pip setuptools wheel)
+pip_install_args=("${PIP_ARGS[@]}" --upgrade)
+if ! command -v apk >/dev/null 2>&1; then
+  pip_install_args+=(--ignore-installed)
+fi
+
+python3 -m pip install "${pip_install_args[@]}" "${pip_packages[0]}"
+python3 -m pip install "${PIP_ARGS[@]}" --ignore-installed --upgrade "${pip_packages[@]:1}"
 
 # Alpine does not ship a pipx package; install via pip when missing.
 if ! command -v pipx >/dev/null 2>&1; then

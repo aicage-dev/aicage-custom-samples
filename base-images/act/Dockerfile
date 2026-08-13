@@ -48,7 +48,9 @@ RUN --mount=type=bind,source=helpers,target=/tmp/aicage/helpers,readonly \
     /tmp/aicage/helpers-run/get-aicage-release-artifact.sh aicage-image-base "${AICAGE_IMAGE_BASE_DIR}" && \
     \
     echo "Install: Running os-installer scripts for distro '${AICAGE_INSTALL_DISTRO}' ..." && \
+    "${AICAGE_IMAGE_BASE_DIR}/scripts/os-installers/distro/${AICAGE_INSTALL_DISTRO}/pre-install.sh" && \
     "${AICAGE_IMAGE_BASE_DIR}/scripts/os-installers/distro/${AICAGE_INSTALL_DISTRO}/install.sh" && \
+    "${AICAGE_IMAGE_BASE_DIR}/scripts/os-installers/distro/${AICAGE_INSTALL_DISTRO}/post-install.sh" && \
     \
     echo "Install: Copy aicage entrypoint.sh ..." && \
     cp "${AICAGE_IMAGE_BASE_DIR}"/scripts/entrypoint.sh /usr/local/bin/entrypoint.sh && \
