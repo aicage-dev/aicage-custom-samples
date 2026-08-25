@@ -1,0 +1,2 @@
+name: "syft"
+description: "Generate software bills of materials for container images and filesystems"

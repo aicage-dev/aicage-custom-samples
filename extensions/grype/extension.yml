@@ -1,0 +1,2 @@
+name: "grype"
+description: "Scan container images, filesystems, and SBOMs for known vulnerabilities"

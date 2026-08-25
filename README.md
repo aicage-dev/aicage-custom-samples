@@ -48,11 +48,13 @@ Current extension samples in this repository:
 - `dotnet`: Install the .NET SDK
 - `gcloud`: Install the Google Cloud CLI
 - `gh`: Install GitHub CLI
+- `grype`: Scan container images, filesystems, and SBOMs for known vulnerabilities
 - `nvidia-cuda`: Install NVIDIA CUDA user-space tooling
 - `php`: Install PHP CLI tooling and Composer
 - `regctl`: Install regctl
 - `shellcheck`: Install ShellCheck
 - `skopeo`: Work with remote container images and registries
+- `syft`: Generate software bills of materials for container images and filesystems
 
 Aicage will automatically build a custom image with your chosen extensions on top of the `base+agent` image.
 
@@ -68,11 +70,13 @@ Examples/Templates:
 - [dotnet](extensions/dotnet)
 - [gcloud](extensions/gcloud)
 - [gh](extensions/gh)
+- [grype](extensions/grype)
 - [nvidia-cuda](extensions/nvidia-cuda)
 - [php](extensions/php)
 - [regctl](extensions/regctl)
 - [shellcheck](extensions/shellcheck)
 - [skopeo](extensions/skopeo)
+- [syft](extensions/syft)
 
 ### Custom agents
 
