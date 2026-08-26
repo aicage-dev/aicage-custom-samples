@@ -49,6 +49,7 @@ Current extension samples in this repository:
 - `gcloud`: Install the Google Cloud CLI
 - `gh`: Install GitHub CLI
 - `grype`: Scan container images, filesystems, and SBOMs for known vulnerabilities
+- `java17`: Install the Java Development Kit 17
 - `nvidia-cuda`: Install NVIDIA CUDA user-space tooling
 - `php`: Install PHP CLI tooling and Composer
 - `regctl`: Install regctl
@@ -71,6 +72,7 @@ Examples/Templates:
 - [gcloud](extensions/gcloud)
 - [gh](extensions/gh)
 - [grype](extensions/grype)
+- [java17](extensions/java17)
 - [nvidia-cuda](extensions/nvidia-cuda)
 - [php](extensions/php)
 - [regctl](extensions/regctl)

@@ -86,7 +86,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN --mount=type=bind,source=extensions/${EXTENSION}/scripts,target=/tmp/extension,readonly \
     mkdir -p /tmp/extension-run && \
-    cp /tmp/extension/*.sh /tmp/extension-run/ && \
+    cp -R /tmp/extension/. /tmp/extension-run/ && \
     for script in /tmp/extension-run/*.sh; do \
       sed -i 's/\r$//' "\$script"; \
       chmod +x "\$script"; \
