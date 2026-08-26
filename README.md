@@ -50,6 +50,7 @@ Current extension samples in this repository:
 - `gh`: Install GitHub CLI
 - `grype`: Scan container images, filesystems, and SBOMs for known vulnerabilities
 - `java17`: Install the Java Development Kit 17
+- `java21`: Install the Java Development Kit 21
 - `nvidia-cuda`: Install NVIDIA CUDA user-space tooling
 - `php`: Install PHP CLI tooling and Composer
 - `regctl`: Install regctl
@@ -73,6 +74,7 @@ Examples/Templates:
 - [gh](extensions/gh)
 - [grype](extensions/grype)
 - [java17](extensions/java17)
+- [java21](extensions/java21)
 - [nvidia-cuda](extensions/nvidia-cuda)
 - [php](extensions/php)
 - [regctl](extensions/regctl)
