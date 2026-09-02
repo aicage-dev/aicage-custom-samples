@@ -13,8 +13,8 @@ curl \
     UV_CACHE_DIR=/usr/local/share/hermes-agent/uv/cache \
     UV_TOOL_DIR=/usr/local/share/hermes-agent/uv/tools \
     bash -s -- \
-      --non-interactive \
-      --skip-computer-use
+    --non-interactive \
+    --skip-computer-use
 
 if [ "$(command -v hermes)" != "/usr/local/bin/hermes" ]; then
   echo "Hermes launcher was not installed system-wide in /usr/local/bin." >&2

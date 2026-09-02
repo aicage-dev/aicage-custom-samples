@@ -24,7 +24,10 @@ fi
 case "$(uname -m)" in
   x86_64) jdk_arch="x64" ;;
   aarch64 | arm64) jdk_arch="aarch64" ;;
-  *) echo "Unsupported host architecture: $(uname -m)" >&2; exit 1 ;;
+  *)
+    echo "Unsupported host architecture: $(uname -m)" >&2
+    exit 1
+    ;;
 esac
 
 tmp_dir="$(mktemp -d)"
