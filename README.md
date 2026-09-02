@@ -92,7 +92,7 @@ Current custom agent samples in this repository:
 - `cline`
 - `forge`
 - `kimi`
-- `kiro`
+- `kiro-cli`
 - `vibe`
 
 Use one with:
@@ -115,7 +115,7 @@ Examples/Templates:
 - [cline](agents/cline)
 - [forge](agents/forge)
 - [kimi](agents/kimi)
-- [kiro](agents/kiro)
+- [kiro-cli](agents/kiro-cli)
 - [vibe](agents/vibe)
 - [aicage-image/agents](https://github.com/aicage/aicage-image/tree/main/agents) for the builtin agents.
 
