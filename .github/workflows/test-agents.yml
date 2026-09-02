@@ -18,6 +18,7 @@ jobs:
         agent:
           - auggie
           - forge
+          - hermes
           - kimi
           - vibe
     steps:
