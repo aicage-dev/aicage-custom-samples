@@ -9,18 +9,30 @@ permissions:
   contents: read
 
 jobs:
+  discover-agent-matrix:
+    name: Discover agent matrix
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.generate.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Generate matrix
+        id: generate
+        run: |
+          matrix="$(scripts/generate-agent-matrix.py)"
+          echo "matrix=${matrix}" >> "$GITHUB_OUTPUT"
+
   test-agents:
+    needs: discover-agent-matrix
     name: Agent ${{ matrix.agent }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        agent:
-          - auggie
-          - forge
-          - hermes
-          - kimi
-          - vibe
+      matrix: ${{ fromJson(needs.discover-agent-matrix.outputs.matrix) }}
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1

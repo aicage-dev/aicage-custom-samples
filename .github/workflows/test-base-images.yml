@@ -9,17 +9,30 @@ permissions:
   contents: read
 
 jobs:
+  discover-base-matrix:
+    name: Discover base image matrix
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.generate.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Generate matrix
+        id: generate
+        run: |
+          matrix="$(scripts/generate-base-matrix.py)"
+          echo "matrix=${matrix}" >> "$GITHUB_OUTPUT"
+
   test-base-images:
+    needs: discover-base-matrix
     name: Base ${{ matrix.base }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        base:
-          - act
-          - debian-mirror
-          - minimal
-          - php
+      matrix: ${{ fromJson(needs.discover-base-matrix.outputs.matrix) }}
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
