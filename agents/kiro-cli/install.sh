@@ -36,9 +36,14 @@ curl \
   https://cli.kiro.dev/install |
   bash
 
-if [[ -x "/root/.local/bin/kiro-cli" ]]; then
-  install -m 0755 /root/.local/bin/kiro-cli /usr/local/bin/kiro-cli
-fi
+for binary in /root/.local/bin/kiro-cli{,-chat,-term}; do
+  if [[ -x "${binary}" ]]; then
+    install -m 0755 "${binary}" "/usr/local/bin/$(basename "${binary}")"
+  fi
+done
+
+# Remove root-home artifacts left by the installer; the image uses /usr/local/bin.
+rm -f /root/.local/bin/kiro-cli{,-chat,-term}
 
 if ! command -v kiro-cli >/dev/null 2>&1; then
   echo "[install_kiro] 'kiro-cli' executable not found after installation." >&2

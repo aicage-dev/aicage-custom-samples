@@ -36,3 +36,6 @@ curl \
   --max-time 300 \
   https://raw.githubusercontent.com/openai/codex/main/LICENSE \
   -o /usr/share/licenses/codex/LICENSE
+
+# Remove root-home artifacts left by the installer.
+uv cache clean

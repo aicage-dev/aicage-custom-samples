@@ -12,3 +12,7 @@ curl \
     UV_TOOL_DIR=/opt/uv/tools \
     UV_TOOL_BIN_DIR=/usr/local/bin \
     sh
+
+# Remove root-home artifacts left by the installer.
+rm -rf /root/.local/bin/uv /root/.local/bin/uvx
+uv cache clean

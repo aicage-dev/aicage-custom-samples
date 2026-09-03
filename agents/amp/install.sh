@@ -18,6 +18,9 @@ elif command -v amp >/dev/null 2>&1; then
   install -m 0755 "$(command -v amp)" /usr/local/bin/amp
 fi
 
+# Remove root-home artifacts left by the installer; the image uses /usr/local/bin.
+rm -rf /root/.local/bin/amp /root/.amp/bin/amp
+
 if ! command -v amp >/dev/null 2>&1; then
   echo "[install_amp] 'amp' executable not found after installation." >&2
   exit 1

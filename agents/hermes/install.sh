@@ -26,3 +26,6 @@ for launcher in /usr/local/bin/hermes /usr/local/bin/hermes-agent /usr/local/bin
     sed -i '/^unset PYTHONPATH$/i export PLAYWRIGHT_BROWSERS_PATH=/usr/local/share/hermes-agent/ms-playwright' "${launcher}"
   fi
 done
+
+# Remove root-home artifacts left by the installer.
+rm -rf /root/.npm

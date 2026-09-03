@@ -21,3 +21,6 @@ curl \
   --max-time 300 \
   https://raw.githubusercontent.com/mistralai/mistral-vibe/refs/heads/main/LICENSE \
   -o /usr/share/licenses/vibe/LICENSE
+
+# Remove root-home artifacts left by the installer.
+uv cache clean
