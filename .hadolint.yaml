@@ -12,3 +12,7 @@ ignored:
   - DL3009
   # Multiple consecutive `RUN` instructions. Consider consolidation.
   - DL3059
+  # Pin versions in apk add. Instead of `apk add <package>` use `apk add <package>=<version>`
+  - DL3018
+  # Specify version with `dnf install -y <package>-<version>`.
+  - DL3041
