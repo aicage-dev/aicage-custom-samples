@@ -63,6 +63,7 @@
     "lycheeignore",
     "mbstring",
     "mktemp",
+    "modcache",
     "noconfirm",
     "noninteractive",
     "nvcc",

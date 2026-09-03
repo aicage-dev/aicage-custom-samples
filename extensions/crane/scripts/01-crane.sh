@@ -11,6 +11,7 @@ mkdir -p "${GOBIN}"
 
 echo "Installing crane with go"
 go install github.com/google/go-containerregistry/cmd/crane@latest
+go clean -cache -modcache
 
 echo "crane version output:"
 crane version
