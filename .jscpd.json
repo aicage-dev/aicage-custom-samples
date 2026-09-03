@@ -38,6 +38,8 @@
     "base-images/minimal/helpers/install-cosign.sh",
     "base-images/act/helpers/install-cosign.sh",
     "base-images/php/helpers/install-cosign.sh",
+    "extensions/java17/scripts/01-java17.sh",
+    "extensions/java21/scripts/01-java21.sh",
     "extensions/nvidia-cuda/scripts/02-deb.sh",
     "extensions/nvidia-cuda/scripts/03-rpm.sh"
   ]
