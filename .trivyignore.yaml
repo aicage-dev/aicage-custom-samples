@@ -2,8 +2,12 @@ misconfigurations:
   - id: AVD-DS-0002
     paths:
       - base-images/*/Dockerfile
+      - tests/agents/Dockerfile
+      - tests/extensions/Dockerfile
     statement: USER is setup on container start
   - id: AVD-DS-0026
     paths:
       - base-images/*/Dockerfile
+      - tests/agents/Dockerfile
+      - tests/extensions/Dockerfile
     statement: HEALTHCHECK not needed, this always runs interactive
