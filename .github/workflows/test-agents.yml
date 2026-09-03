@@ -48,15 +48,21 @@ jobs:
         uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6  # v4.1.2
 
       - name: Build agent image
+        env:
+          AGENT: ${{ matrix.agent }}
+          IMAGE: aicage-custom-samples:test-agent-${{ matrix.agent }}
         run: |
           chmod +x scripts/*.sh agents/*/*.sh
           scripts/build-agent.sh \
-            --agent "${{ matrix.agent }}" \
+            --agent "$AGENT" \
             --base-image "ghcr.io/aicage/aicage-image-base:ubuntu" \
-            --image "aicage-custom-samples:test-agent-${{ matrix.agent }}"
+            --image "$IMAGE"
 
       - name: Run agent smoke tests
+        env:
+          AGENT: ${{ matrix.agent }}
+          IMAGE: aicage-custom-samples:test-agent-${{ matrix.agent }}
         run: |
           scripts/test-agent.sh \
-            --agent "${{ matrix.agent }}" \
-            --image "aicage-custom-samples:test-agent-${{ matrix.agent }}"
+            --agent "$AGENT" \
+            --image "$IMAGE"
