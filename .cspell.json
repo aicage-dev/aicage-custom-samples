@@ -35,6 +35,7 @@
     "distros",
     "dockerhub",
     "dpkg",
+    "elif",
     "ensurepath",
     "forgecode",
     "githubcli",
