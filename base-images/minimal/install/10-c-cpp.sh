@@ -6,6 +6,7 @@ apk add --no-cache \
   clang \
   cmake \
   gdb \
+  gmp-dev \
   lld \
   lldb \
   ltrace \
