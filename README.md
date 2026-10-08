@@ -91,6 +91,7 @@ Current custom agent samples in this repository:
 - `cline`
 - `crush`
 - `forge`
+- `kimi`
 
 Use one with:
 
@@ -111,6 +112,7 @@ Examples/Templates:
 - [cline](agents/cline)
 - [crush](agents/crush)
 - [forge](agents/forge)
+- [kimi](agents/kimi)
 - [aicage-image/agents](https://github.com/aicage/aicage-image/tree/main/agents) for the builtin agents.
 
 ### Base-images
