@@ -27,3 +27,21 @@ jobs:
 
   test-extensions:
     uses: ./.github/workflows/test-extensions.yml
+
+  required-status-checks:
+    name: "Required Status Checks"  # do not change, used in ruleset "Required Status Checks"
+    if: ${{ always() }}
+    needs:
+      - lint
+      - test-agents
+      - test-base-images
+      - test-extensions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check validation job results
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+        run: |
+          jq --exit-status \
+            'all(.[]; .result == "success" or .result == "skipped")' \
+            <<< "$NEEDS"
