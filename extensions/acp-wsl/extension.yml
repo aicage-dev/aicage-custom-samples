@@ -1,0 +1,4 @@
+name: "acp-wsl"
+description: "Install the Linux ACP bridge for Windows and WSL"
+shares:
+  - C:\development\github\aicage\acp-wsl\bin\release\log\out.log
