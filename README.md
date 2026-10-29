@@ -42,6 +42,7 @@ Extensions are the easiest way to add more software to Aicage images.
 
 Current extension samples in this repository:
 
+- `acp-wsl`: Install the Linux ACP bridge for Windows and WSL
 - `act`: Run GitHub Actions locally
 - `crane`: Install crane
 - `cosign`: Install sigstore/cosign
@@ -66,6 +67,7 @@ You can easily add your own extension by adding a folder to `~/.aicage-custom/ex
 
 Examples/Templates:
 
+- [acp-wsl](extensions/acp-wsl)
 - [act](extensions/act)
 - [crane](extensions/crane)
 - [cosign](extensions/cosign)
