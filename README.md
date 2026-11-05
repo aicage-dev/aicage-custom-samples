@@ -55,6 +55,7 @@ Current extension samples in this repository:
 - `nvidia-cuda`: Install NVIDIA CUDA user-space tooling
 - `php`: Install PHP CLI tooling and Composer
 - `regctl`: Install regctl
+- `rgctl`: Query a code knowledge graph for structural code analysis
 - `skopeo`: Work with remote container images and registries
 - `syft`: Generate software bills of materials for container images and filesystems
 
@@ -79,6 +80,7 @@ Examples/Templates:
 - [nvidia-cuda](extensions/nvidia-cuda)
 - [php](extensions/php)
 - [regctl](extensions/regctl)
+- [rgctl](extensions/rgctl)
 - [skopeo](extensions/skopeo)
 - [syft](extensions/syft)
 
