@@ -43,6 +43,7 @@ Extensions are the easiest way to add more software to Aicage images.
 Current extension samples in this repository:
 
 - `act`: Run GitHub Actions locally
+- `bats`: Bash Automated Testing System
 - `crane`: Install crane
 - `cosign`: Install sigstore/cosign
 - `dotnet`: Install the .NET SDK
@@ -68,6 +69,7 @@ You can easily add your own extension by adding a folder to `~/.aicage-custom/ex
 Examples/Templates:
 
 - [act](extensions/act)
+- [bats](extensions/bats)
 - [crane](extensions/crane)
 - [cosign](extensions/cosign)
 - [dotnet](extensions/dotnet)
