@@ -55,6 +55,7 @@ Current extension samples in this repository:
 - `java21`: Install the Java Development Kit 21
 - `nvidia-cuda`: Install NVIDIA CUDA user-space tooling
 - `php`: Install PHP CLI tooling and Composer
+- `podman`: Run and manage OCI containers and images
 - `regctl`: Install regctl
 - `rgctl`: Query a code knowledge graph for structural code analysis
 - `skopeo`: Work with remote container images and registries
@@ -81,6 +82,7 @@ Examples/Templates:
 - [java21](extensions/java21)
 - [nvidia-cuda](extensions/nvidia-cuda)
 - [php](extensions/php)
+- [podman](extensions/podman)
 - [regctl](extensions/regctl)
 - [rgctl](extensions/rgctl)
 - [skopeo](extensions/skopeo)
