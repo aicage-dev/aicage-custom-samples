@@ -8,3 +8,5 @@ yamllint>=1.38.0,<2
 idna>=3.15,<4
 pygments>=2.20.0,<3
 requests>=2.33.0,<3
+# Transitive security floor for docker -> requests -> certifi; remove if Docker no longer needs it.
+certifi>=2026.10.19,<2027

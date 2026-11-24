@@ -30,6 +30,7 @@
     "boto",
     "bpftool",
     "catthehacker",
+    "certifi",
     "charmland",
     "containerregistry",
     "cooldown",
