@@ -43,6 +43,7 @@ Extensions are the easiest way to add more software to Aicage images.
 Current extension samples in this repository:
 
 - `act`: Run GitHub Actions locally
+- `bats`: Bash Automated Testing System
 - `crane`: Install crane
 - `cosign`: Install sigstore/cosign
 - `dotnet`: Install the .NET SDK
@@ -54,7 +55,9 @@ Current extension samples in this repository:
 - `java21`: Install the Java Development Kit 21
 - `nvidia-cuda`: Install NVIDIA CUDA user-space tooling
 - `php`: Install PHP CLI tooling and Composer
+- `podman`: Run and manage OCI containers and images
 - `regctl`: Install regctl
+- `rgctl`: Query a code knowledge graph for structural code analysis
 - `skopeo`: Work with remote container images and registries
 - `syft`: Generate software bills of materials for container images and filesystems
 
@@ -67,6 +70,7 @@ You can easily add your own extension by adding a folder to `~/.aicage-custom/ex
 Examples/Templates:
 
 - [act](extensions/act)
+- [bats](extensions/bats)
 - [crane](extensions/crane)
 - [cosign](extensions/cosign)
 - [dotnet](extensions/dotnet)
@@ -78,7 +82,9 @@ Examples/Templates:
 - [java21](extensions/java21)
 - [nvidia-cuda](extensions/nvidia-cuda)
 - [php](extensions/php)
+- [podman](extensions/podman)
 - [regctl](extensions/regctl)
+- [rgctl](extensions/rgctl)
 - [skopeo](extensions/skopeo)
 - [syft](extensions/syft)
 
